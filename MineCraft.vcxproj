@@ -130,6 +130,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CubeVertex.cpp" />
+    <ClCompile Include="FileReader.cpp" />
+    <ClCompile Include="MapReader.cpp" />
     <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="GLWindow.cpp" />
@@ -138,6 +140,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CubeVertex.h" />
+    <ClInclude Include="FileReader.h" />
+    <ClInclude Include="MapReader.h" />
     <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="GLWindow.h" />
     <ClInclude Include="Shader.h" />

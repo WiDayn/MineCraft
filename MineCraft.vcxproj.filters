@@ -22,6 +22,21 @@
     <Filter Include="资源文件\assets\textures">
       <UniqueIdentifier>{d1431ed6-8195-4216-9635-e0f2006fb1f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\maps">
+      <UniqueIdentifier>{97b25d31-efe1-4e62-95ce-a4a58ee6c720}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\maps\chunk">
+      <UniqueIdentifier>{fadeb9b6-f28b-4d0c-acf4-028f783badfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\maps">
+      <UniqueIdentifier>{818db199-5040-47fa-8700-06acdec2d6b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\utils">
+      <UniqueIdentifier>{ea25b877-f5ba-4c8e-96e4-6f2801a55d7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\utils">
+      <UniqueIdentifier>{fc50df97-d2bd-4f3b-958b-0cb477386054}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MineCraft.cpp">
@@ -42,6 +57,12 @@
     <ClCompile Include="CubeVertex.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="MapReader.cpp">
+      <Filter>源文件\maps</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>源文件\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -58,6 +79,12 @@
     </ClInclude>
     <ClInclude Include="CubeVertex.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MapReader.h">
+      <Filter>头文件\maps</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>头文件\utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
