@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <fstream>
 
 std::string FileReader::readFile(std::string filePath)
 {
@@ -27,4 +28,10 @@ std::string FileReader::readFile(std::string filePath)
         std::cout << "ERROR::SHADER::FILE_NOT_SUCCESSFULLY_READ: " << e.what() << std::endl;
     }
 	return resultString;
+}
+
+bool FileReader::isFileExists(std::string filePath)
+{
+    std::ifstream file(filePath.c_str());
+    return file.good();
 }
