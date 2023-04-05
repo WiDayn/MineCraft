@@ -21,7 +21,7 @@ GLWindow::GLWindow(const int SCR_WIDTH, const int SCR_HEIGHT)
 
     // glfw window creation
     // --------------------
-    window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "MineCraft openGL", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;

@@ -16,6 +16,12 @@
     <Filter Include="源文件\Shaders">
       <UniqueIdentifier>{c3d32451-5ee5-42bc-9a9b-b99460e92255}</UniqueIdentifier>
     </Filter>
+    <Filter Include="资源文件\assets">
+      <UniqueIdentifier>{beca9682-5d41-4231-a15e-ea899f3c121d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\assets\textures">
+      <UniqueIdentifier>{d1431ed6-8195-4216-9635-e0f2006fb1f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MineCraft.cpp">
@@ -33,6 +39,9 @@
     <ClCompile Include="TextureLoader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CubeVertex.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -47,6 +56,9 @@
     <ClInclude Include="TextureLoader.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CubeVertex.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\shader.vs">
@@ -55,5 +67,19 @@
     <None Include="shaders\shader.fs">
       <Filter>源文件\Shaders</Filter>
     </None>
+    <None Include="README.md">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\glass_down.png">
+      <Filter>资源文件\assets\textures</Filter>
+    </Image>
+    <Image Include="assets\textures\glass_side.png">
+      <Filter>资源文件\assets\textures</Filter>
+    </Image>
+    <Image Include="assets\textures\glass_top.png">
+      <Filter>资源文件\assets\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

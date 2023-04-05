@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CubeVertex.cpp" />
     <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="GLWindow.cpp" />
@@ -136,14 +137,21 @@
     <ClCompile Include="Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CubeVertex.h" />
     <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="GLWindow.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.md" />
     <None Include="shaders\shader.fs" />
     <None Include="shaders\shader.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\textures\glass_down.png" />
+    <Image Include="assets\textures\glass_side.png" />
+    <Image Include="assets\textures\glass_top.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
