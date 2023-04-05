@@ -11,6 +11,7 @@
 #include "TextureLoader.h"
 #include "CubeVertex.h"
 #include "stb_image.h"
+#include "Chunk.h"
 
 
 
@@ -37,18 +38,19 @@ int main() {
 
     CubeVertex cubeVertex = CubeVertex();
 
-    glm::vec3 cubePositions[] = {
-        glm::vec3( 0.0f,  0.0f,  0.0f), 
-        glm::vec3( 2.0f,  5.0f, -15.0f), 
-        glm::vec3(-1.5f, -2.2f, -2.5f),  
-        glm::vec3(-3.8f, -2.0f, -12.3f),  
-        glm::vec3( 2.4f, -0.4f, -3.5f),  
-        glm::vec3(-1.7f,  3.0f, -7.5f),  
-        glm::vec3( 1.3f, -2.0f, -2.5f),  
-        glm::vec3( 1.5f,  2.0f, -2.5f), 
-        glm::vec3( 1.5f,  0.2f, -1.5f), 
-        glm::vec3(-1.3f,  1.0f, -1.5f),
-    };
+    std::vector<glm::vec3> cubePositions = std::vector<glm::vec3>();
+    
+    Chunk chunk1 = Chunk(-15, -15);
+    Chunk chunk2 = Chunk(0, -15);
+    chunk1.load();
+    chunk2.load();
+    for (auto& cube : chunk1.getCubeList()) {
+        cubePositions.push_back(glm::vec3(float(chunk1.getX() + cube.first.x), float(0 + cube.first.y), float(chunk1.getZ() + cube.first.z)));
+    }
+    for (auto& cube : chunk2.getCubeList()) {
+        cubePositions.push_back(glm::vec3(float(chunk2.getX() + cube.first.x), float(0 + cube.first.y), float(chunk2.getZ() + cube.first.z)));
+    }
+    
 
     ourShader.use();
     glEnable(GL_DEPTH_TEST);
@@ -67,7 +69,7 @@ int main() {
         
         glBindVertexArray(cubeVertex.VAO);
 
-        for (unsigned int i = 0; sizeof(cubePositions) && i < int(sizeof(cubePositions) / sizeof(cubePositions[0])); i++)
+        for (unsigned int i = 0; i < cubePositions.size(); i++)
         {
             // make sure to initialize matrix to identity matrix first
             glm::mat4 model = glm::mat4(1.0f);
@@ -107,9 +109,6 @@ int main() {
         glfwSwapBuffers(window.getWindow());
         glfwPollEvents();
     }
-
-    // optional: de-allocate all resources once they've outlived their purpose:
-    // ------------------------------------------------------------------------
 
     // glfw: terminate, clearing all previously allocated GLFW resources.
     // ------------------------------------------------------------------

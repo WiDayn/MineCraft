@@ -25,9 +25,6 @@
     <Filter Include="源文件\maps">
       <UniqueIdentifier>{97b25d31-efe1-4e62-95ce-a4a58ee6c720}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\maps\chunk">
-      <UniqueIdentifier>{fadeb9b6-f28b-4d0c-acf4-028f783badfa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\maps">
       <UniqueIdentifier>{818db199-5040-47fa-8700-06acdec2d6b4}</UniqueIdentifier>
     </Filter>
@@ -36,6 +33,12 @@
     </Filter>
     <Filter Include="头文件\utils">
       <UniqueIdentifier>{fc50df97-d2bd-4f3b-958b-0cb477386054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\maps\chunks">
+      <UniqueIdentifier>{fadeb9b6-f28b-4d0c-acf4-028f783badfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\maps\chunks">
+      <UniqueIdentifier>{31614afe-fb8a-4502-a1f5-c6e13fb00944}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +66,9 @@
     <ClCompile Include="FileReader.cpp">
       <Filter>源文件\utils</Filter>
     </ClCompile>
+    <ClCompile Include="Chunk.cpp">
+      <Filter>源文件\maps\chunks</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -85,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="FileReader.h">
       <Filter>头文件\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Chunk.h">
+      <Filter>头文件\maps\chunks</Filter>
+    </ClInclude>
+    <ClInclude Include="XYZ.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
