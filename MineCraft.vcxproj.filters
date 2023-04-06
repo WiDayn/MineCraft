@@ -69,6 +69,9 @@
     <ClCompile Include="Chunk.cpp">
       <Filter>源文件\maps\chunks</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -96,6 +99,9 @@
       <Filter>头文件\maps\chunks</Filter>
     </ClInclude>
     <ClInclude Include="XYZ.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -10,8 +10,10 @@ void GLWindow::framebufferSizeCallback(GLFWwindow* window, int width, int height
     std::cout << "Resize window: " << width << " " << height << std::endl;
 }
 
-GLWindow::GLWindow(const int SCR_WIDTH, const int SCR_HEIGHT)
+GLWindow::GLWindow(int SCR_WIDTH, int SCR_HEIGHT)
 {
+    this->SCR_WIDTH = SCR_WIDTH;
+    this->SCR_HEIGHT = SCR_HEIGHT;
     // glfw: initialize and configure
     // ------------------------------
     glfwInit();

@@ -11,8 +11,11 @@ private:
 	// glfw:只要窗口大小改变(由操作系统或用户调整大小)，这个回调函数就会执行
 	static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
 public:
+	unsigned int SCR_WIDTH;
+	unsigned int SCR_HEIGHT;
+
 	// 构造器读取并构建窗体
-	GLWindow(const int SCR_WIDTH, const int SCR_HEIGHT);
+	GLWindow(int SCR_WIDTH, int SCR_HEIGHT);
 
 	void use();
 
