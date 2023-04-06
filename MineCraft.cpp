@@ -102,6 +102,7 @@ int main() {
 
         ourShader.use();
         glBindVertexArray(cubeVertex.VAO);
+        ourShader.setVec3("viewPos", camera.cameraPos);
         float last_time = 0;
         for (unsigned int i = 0; i < cubePositions.size(); i++)
         {   
@@ -115,12 +116,11 @@ int main() {
             unsigned int modelLoc = glGetUniformLocation(ourShader.getID(), "model");
             unsigned int viewLoc = glGetUniformLocation(ourShader.getID(), "view");
             unsigned int lightColorLoc = glGetUniformLocation(ourShader.getID(), "lightColor");
-            // pass them to the shaders (3 different ways)
-            glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-            glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &camera.view[0][0]);
-           
+
+            ourShader.setMat4("model", model);
+            ourShader.setMat4("view", camera.view);
             ourShader.setVec3("lightPos", light.lightPos);
-            ourShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+            ourShader.setVec3("lightColor", light.lightColor);
             ourShader.setMat4("projection", camera.projection);
 
             // render the triangle

@@ -11,6 +11,7 @@ class Light
 public:
 	glm::vec3 lightPos;
 	glm::mat4 model;
+	glm::vec3 lightColor;
 
 	Light(int x, int y, int z);
 };
