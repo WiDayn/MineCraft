@@ -1,12 +1,8 @@
-#include "CubeVertex.h"
+#include "LightVertex.h"
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
-
-float CubeVertex::vertices[] = {
+float LightVertex::vertices[] = {
 -0.5f, -0.5f, -0.5f,  0.0f, 0.0f, 0.0f,  0.0f, -1.0f,
  0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f,  0.0f, -1.0f,
  0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 0.0f,  0.0f, -1.0f,
@@ -50,7 +46,7 @@ float CubeVertex::vertices[] = {
 -0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 0.0f,  1.0f,  0.0f,
 };
 
-unsigned int CubeVertex::indices[] = {
+unsigned int LightVertex::indices[] = {
     0,1,2,
     3,4,5,
     6,7,8,
@@ -65,7 +61,7 @@ unsigned int CubeVertex::indices[] = {
     33,34,35,
 };
 
-CubeVertex::CubeVertex() {
+LightVertex::LightVertex() {
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     glGenBuffers(1, &EBO);
@@ -89,7 +85,7 @@ CubeVertex::CubeVertex() {
     glEnableVertexAttribArray(2);
 }
 
-CubeVertex::~CubeVertex()
+LightVertex::~LightVertex()
 {
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);

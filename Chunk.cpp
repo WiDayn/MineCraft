@@ -39,6 +39,7 @@ void Chunk::generate()
 			cubeList[XYZ(x, 0, z)] = 1;
 		}
 	}
+	cubeList[XYZ(1, 1, 1)] = 1;
 }
 
 void Chunk::save()

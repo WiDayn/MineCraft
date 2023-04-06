@@ -14,6 +14,8 @@
 #include "stb_image.h"
 #include "Chunk.h"
 #include "Camera.h"
+#include "LightVertex.h"
+#include "Light.h"
 
 
 
@@ -33,7 +35,7 @@ int main() {
     window.use();
 
 	Shader ourShader = Shader("./shaders/shader.vs", "./shaders/shader.fs");
-
+    Shader lightShader = Shader("./shaders/shader.vs", "./shaders/light.fs");
     TextureLoader texttrueLoader = TextureLoader();
     texttrueLoader.loadNewAsset("glass_top", "./assets/textures/glass_top.png");
     texttrueLoader.loadNewAsset("glass_side", "./assets/textures/glass_side.png");
@@ -56,14 +58,15 @@ int main() {
     for (auto& cube : chunk2.getCubeList()) {
         cubePositions.push_back(glm::vec3(float(chunk2.getX() + cube.first.x), float(0 + cube.first.y), float(chunk2.getZ() + cube.first.z)));
     }
-    
 
-    ourShader.use();
+    LightVertex lightVertex = LightVertex();
+    Light light = Light(5, 5, -10);
+
     glEnable(GL_DEPTH_TEST);
     glfwSetInputMode(window.getWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     glfwSetCursorPosCallback(window.getWindow(), mouse_callback);
-    glEnable(GL_CULL_FACE);
-    glCullFace(GL_BACK);
+    //glEnable(GL_CULL_FACE);
+    //glCullFace(GL_BACK);
     float last_time = 0;
     // render loop
     // -----------
@@ -82,24 +85,42 @@ int main() {
         // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        
+
+        camera.update(window.SCR_WIDTH, window.SCR_HEIGHT);
+        glm::mat4 model = glm::mat4(1.0f);
+
+
+        lightShader.use();
+        glBindVertexArray(lightVertex.VAO);
+        // make sure to initialize matrix to identity matrix first
+        model = glm::translate(model, light.lightPos);
+
+        lightShader.setMat4("model", model);
+        lightShader.setMat4("view", camera.view);
+        lightShader.setMat4("projection", camera.projection);
+        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+
+        ourShader.use();
         glBindVertexArray(cubeVertex.VAO);
         float last_time = 0;
         for (unsigned int i = 0; i < cubePositions.size(); i++)
         {   
-            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::mat4(1.0f);
             // make sure to initialize matrix to identity matrix first
             model = glm::translate(model, cubePositions[i]);
             // model
             model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
-            camera.update(window.SCR_WIDTH, window.SCR_HEIGHT);
             // retrieve the matrix uniform locations
             unsigned int modelLoc = glGetUniformLocation(ourShader.getID(), "model");
             unsigned int viewLoc = glGetUniformLocation(ourShader.getID(), "view");
+            unsigned int lightColorLoc = glGetUniformLocation(ourShader.getID(), "lightColor");
             // pass them to the shaders (3 different ways)
             glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
             glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &camera.view[0][0]);
+           
+            ourShader.setVec3("lightPos", light.lightPos);
+            ourShader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
             ourShader.setMat4("projection", camera.projection);
 
             // render the triangle
@@ -130,7 +151,7 @@ int main() {
 // ---------------------------------------------------------------------------------------------------------
 void processInput(GLFWwindow* window)
 {
-    float cameraSpeed = 0.1f; // adjust accordingly
+    float cameraSpeed = 0.25f; // adjust accordingly
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
         camera.cameraPos += cameraSpeed * camera.cameraFront * glm::vec3(1.0f, 0.0f, 1.0f);
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)

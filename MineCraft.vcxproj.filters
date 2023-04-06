@@ -72,6 +72,12 @@
     <ClCompile Include="Camera.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="LightVertex.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">
@@ -104,6 +110,12 @@
     <ClInclude Include="Camera.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="LightVertex.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\shader.vs">
@@ -114,6 +126,9 @@
     </None>
     <None Include="README.md">
       <Filter>资源文件</Filter>
+    </None>
+    <None Include="shaders\light.fs">
+      <Filter>源文件\Shaders</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
