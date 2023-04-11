@@ -60,9 +60,6 @@
     <ClCompile Include="CubeVertex.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MapReader.cpp">
-      <Filter>源文件\maps</Filter>
-    </ClCompile>
     <ClCompile Include="FileReader.cpp">
       <Filter>源文件\utils</Filter>
     </ClCompile>
@@ -77,6 +74,15 @@
     </ClCompile>
     <ClCompile Include="Light.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>源文件\maps</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,9 +100,6 @@
     </ClInclude>
     <ClInclude Include="CubeVertex.h">
       <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="MapReader.h">
-      <Filter>头文件\maps</Filter>
     </ClInclude>
     <ClInclude Include="FileReader.h">
       <Filter>头文件\utils</Filter>
@@ -116,6 +119,15 @@
     <ClInclude Include="Light.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>头文件\maps</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\shader.vs">
@@ -127,7 +139,13 @@
     <None Include="README.md">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="shaders\light.fs">
+    <None Include="shaders\shadowsDepth.fs">
+      <Filter>源文件\Shaders</Filter>
+    </None>
+    <None Include="shaders\shadowsDepth.gs">
+      <Filter>源文件\Shaders</Filter>
+    </None>
+    <None Include="shaders\shadowsDepth.vs">
       <Filter>源文件\Shaders</Filter>
     </None>
   </ItemGroup>

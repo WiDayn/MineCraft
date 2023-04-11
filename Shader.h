@@ -12,6 +12,7 @@ private:
 public:
     // 构造器读取并构建着色器
     Shader(const char* vertexPath, const char* fragmentPath);
+    Shader(const char* vertexPath, const char* fragmentPath, const char* geometryPath);
     // 使用/激活程序
     void use();
     // uniform工具函数

@@ -15,6 +15,8 @@ public:
 
 	Chunk(int x, int z);
 
+	void setXZ(int x, int z) { this->x = x; this->z = z; }
+
 	int getX() { return x; };
 
 	int getZ() {return z; };
@@ -24,6 +26,16 @@ public:
 	void generate();
 	// 保存位于(x,z)的区块
 	void save();
+
+	bool operator==(const Chunk& other) const {
+		return x == other.x && z == other.z;
+	}
+
+	struct Hash {
+		std::size_t operator()(const Chunk& chunk) const {
+			return std::hash<int>()(chunk.x) ^ std::hash<int>()(chunk.z);
+		}
+	};
 
 	std::unordered_map<XYZ, int, XYZ::Hash> getCubeList();
 	// 序列化函数
